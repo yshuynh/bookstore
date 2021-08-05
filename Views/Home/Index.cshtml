@@ -1,0 +1,292 @@
+﻿@model Tuple<List<Category>, List<Publisher>, List<Book>>;
+@{
+    ViewData["Title"] = "Home Page";
+    List<Category> categories = Model.Item1;
+    List<Publisher> publishers = Model.Item2;
+    List<Book> books = Model.Item3;
+    Category category1 = ViewBag.Category;
+    SubCategory subCategory1 = ViewBag.SubCategory;
+    int page = ViewBag.Page;
+    int maxPage = ViewBag.MaxPage;
+    string pageUrl = "/?";
+    if (subCategory1 != null) pageUrl = "/?subCategory=" + subCategory1.Id + "&";
+    else if (category1 != null) pageUrl = "/?category=" + category1.Id + "&";
+}
+<div class="grid">
+    <div class="grid__row app__content">
+        <div class="grid__column-2">
+            <nav class="category">
+                <h3 class="category__heading">
+                    <i class="fas fa-list category__heading-icon"></i>
+                    Danh mục
+                </h3>
+                <ul class="category__list">
+                    <li class="category__items category__items-active">
+                        <a href="" class="category__items-link">
+                            <i class="fas fa-chevron-down"></i>
+                            Sản phẩm</a>
+                    </li>
+                    @foreach (var category in categories)
+                    {
+                        <li class="category__items">
+                            <a href="/?category=@category.Id" class="category__items-link"> @category.Name
+                                <i class="fas fa-chevron-right category__items-linkicon"></i>
+                            </a>
+                            <ul class="cateitems__list">
+                                @foreach (var subcategory in category.SubCategories)
+                                {
+                                    <li class="cateitems__items">
+                                        <a href="/?subCategory=@subcategory.Id"
+                                    class="cateitems__items--link">@subcategory.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <ul class="category__list">
+                    <li class="category__items category__items-active">
+                        <a href="" class="category__items-link">
+                            <!-- <i class="fas fa-chevron-down"></i> -->
+                            Giá
+                        </a>
+                    </li>
+                    <li class="category__items">
+                        <a href="" class="category__items-checkbox">
+                            <input type="checkbox" class="category__check">
+                            0-150,000đ
+                        </a>
+                    </li>
+                    <li class="category__items">
+                        <a href="" class="category__items-checkbox">
+                            <input type="checkbox" class="category__check">
+                            0-150,000đ
+                        </a>
+                    </li>
+                    <li class="category__items">
+                        <a href="" class="category__items-checkbox">
+                            <input type="checkbox" class="category__check">
+                            0-150,000đ
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="category__list">
+                    <li class="category__items category__items-active">
+                        <a href="" class="category__items-link">
+                            <!-- <i class="fas fa-chevron-down"></i> -->
+                            Hình thức
+                        </a>
+                    </li>
+                    <li class="category__items">
+                        <a href="" class="category__items-checkbox">
+                            <input type="checkbox" class="category__check">
+                            Bìa mềm
+                        </a>
+                    </li>
+                    <li class="category__items">
+                        <a href="" class="category__items-checkbox">
+                            <input type="checkbox" class="category__check">
+                            Bìa cứng
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="category__list">
+                    <li class="category__items category__items-active">
+                        <a href="" class="category__items-link">
+                            <!-- <i class="fas fa-chevron-down"></i> -->
+                            Nhà cung cấp
+                        </a>
+                    </li>
+                    @foreach (var publisher in publishers)
+                    {
+                        <li class="category__items">
+                            <a href="" class="category__items-checkbox">
+                                <input type="checkbox" class="category__check">
+                                @publisher.Name
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="grid__column-10">
+            @if (category1 == null && subCategory1 == null)
+            {
+                <div id="slider">
+                    <figure>
+
+                        <img src="https://cdn0.fahasa.com/media/magentothem/banner7/DCVP__920x420.png" class="slider_img"
+                        alt="">
+                        <img src="https://cdn0.fahasa.com/media/magentothem/banner7/bs2920x420.png" class="slider_img"
+                        alt="">
+                        <img src="https://cdn0.fahasa.com/media/magentothem/banner7/zlpt4-920x420.png" class="slider_img"
+                        alt="">
+                        <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Game_Trang-chung-920x420.jpg"
+                        class="slider_img" alt="">
+                        <img src="https://cdn0.fahasa.com/media/magentothem/banner7/DCVP__920x420.png" class="slider_img"
+                        alt=""> -
+
+                    </figure>
+                </div>
+            }
+            else
+            {
+                <div class="container" style="background-color: transparent !important; padding-bottom: 0; padding-top: 0;">
+                    <div class="row">
+                        <a class="path-item" href="/">Trang chủ</a>
+                        <a class="path-item">></a>
+                        <a class="path-item" href="/?category=@category1.Id">@category1.Name</a>
+                        @if (subCategory1 != null)
+                        {
+                            <a class="path-item">></a>
+                            <a class="path-item" href="/?subCategory=@subCategory1.Id">@subCategory1.Name</a>
+                        }
+                    </div>
+                </div>
+            }
+            <div class="home__fiter">
+                <span class="home__fiter-heading">
+                    Sắp xếp theo
+                </span>
+                <button class="btn btn-home__fiter">
+                    Phổ biến
+                </button>
+                <button class="btn btn--primary btn-home__fiter">
+                    Mới nhất
+                </button>
+                <button class="btn btn-home__fiter">
+                    Bán chạy
+                </button>
+                <div class="home__fiter-pages">
+                    <span class="home__pages-number">
+                        <span class="home__pages-current"> 1</span>/14
+                    </span>
+                    <div class="home__pages-control">
+                        <a href="" class="home__pages-button home__pages-button-disable">
+                            <i class="fas fa-chevron-left home__button-icon"></i>
+                        </a>
+                        <a href="" class="home__pages-button">
+                            <i class="fas fa-chevron-right home__button-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="home__product">
+                <div class="grid__row">
+                    @foreach (var book in books)
+                    {
+                        <div class="grid__column-2-4">
+                            <a href="/detail/@book.Id" class="home__product-items">
+                                <div class="home__product-itemsimg" style="background-image: url(@book.BookMeta.BgUrl);">
+                                </div>
+                                <h4 class="home__product-itemsname">@book.Title</h4>
+                                <div class="home__product-itemsprice">
+                                    <span class="home__product-itemsoldprice">@book.BookMeta.OriginalPrice VND</span>
+                                    <span class="home__product-itemsnewprice">@book.BookMeta.Price VND</span>
+
+                                </div>
+                                <div class="home__product-itemsaction">
+                                    <div class="home__product-itemslike home__product-itemslike-liked">
+                                        <i class="fas fa-heart home__product-items-icon-fill"></i>
+                                        <i class="far fa-heart home__product-items-icon-empty"></i>
+                                    </div>
+                                    <div class="home__product-itemsvote">
+                                        <i class="home__product-items-startgold fas fa-star"></i>
+                                        <i class="home__product-items-startgold fas fa-star"></i>
+                                        <i class="home__product-items-startgold fas fa-star"></i>
+                                        <i class="home__product-items-startgold fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="home__product-itemsfavorite">
+                                    <i class="fas fa-check"></i>
+                                    <span>
+                                        Yêu Thích
+                                    </span>
+                                </div>
+                                <div class="home__product-items-sale">
+                                    <span class="home__product-items-sale-percent">
+                                        @book.BookMeta.DiscountPercent%
+                                    </span>
+                                    <span class="home__product-items-items-sale-label">
+                                        GIẢM
+                                    </span>
+                                </div>
+                            </a>
+
+                        </div>
+                    }
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <ul class="paganition parganition--modifer">
+                <li class="paganition__items">
+                    <a href="" class="paganition__items-link">
+                        <i class="fas fa-chevron-left paganition__items-icon"></i>
+                    </a>
+                </li>
+                @for (int i = 1; i <= maxPage; i++)
+                {
+                    if (@i == page)
+                    {
+                        <li class="paganition__items paganition__items-active">
+                            <a class="paganition__items-link" style="color:white;">
+                                @i
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="paganition__items">
+                            <a href="@(pageUrl)page=@i" class="paganition__items-link">
+                                @i
+                            </a>
+                        </li>
+                    }
+                }
+                @* <li class="paganition__items">
+                    <a href="" class="paganition__items-link">
+                        2
+                    </a>
+                </li>
+                <li class="paganition__items">
+                    <a href="" class="paganition__items-link">
+                        3
+                    </a>
+                </li>
+                <li class="paganition__items">
+                    <a href="" class="paganition__items-link">
+                        4
+                    </a>
+                </li>
+                <li class="paganition__items">
+                    <a href="" class="paganition__items-link">
+                        ...
+                    </a>
+                </li>
+                <li class="paganition__items">
+                    <a href="" class="paganition__items-link">
+                        10
+                    </a>
+                </li> *@
+                <li class="paganition__items">
+                    <a href="" class="paganition__items-link paganition__items-icon">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

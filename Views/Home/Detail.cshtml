@@ -1,0 +1,179 @@
+@model Book;
+
+@{
+    ViewData["Title"] = "Home Page";
+    var book = Model;
+}
+@section Styles
+{
+<link rel="stylesheet" href="~/css/book-detail.css">
+}
+
+<!--  -->
+<div class="card">
+    <div class="container" style="background-color: transparent !important; padding-bottom: 0; padding-top: 0;">
+        <div class="row">
+            <a class="path-item" href="/">Trang chủ</a>
+            <a class="path-item">></a>
+            <a class="path-item" href="/?category=@book.Category.Id">@book.Category.Name</a>
+            <a class="path-item">></a>
+            <a class="path-item" href="/?subCategory=@book.SubCategory.Id">@book.SubCategory.Name</a>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="container">
+        <div class="wrapper row">
+            <div class="preview col-md-4">
+                <img src="@book.BookMeta.BgUrl" id="book-detail-img">
+            </div>
+            <div class="details col-md-8">
+                <h3 class="book-title">@book.Title</h3>
+                <div class="rating">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <span class="review-no">99 reviews</span>
+                </div>
+                <p class="book-info"><span>Nhà cung cấp: </span> <span class="info">@book.BookMeta.Publisher.Name</span>
+                    <br><br><span>Tác giả: </span> <span class="info">Hannah Watson, Malu Lenzi</span>
+                </p>
+                <small class="text-muted">Giá cũ: <s><span>@String.Format("{0:n0}", book.BookMeta.OriginalPrice)
+                            vnđ</span></s></small>
+                <h3 class="price">Giá hiện tại: <span>@String.Format("{0:n0}", book.BookMeta.Price) vnđ</span></h4>
+                    <h3 class="price">Tiết kiệm: <span class="sale-percent">@book.BookMeta.DiscountPercent%</span></h4>
+                        <label class="book-info" for="soluong">Số lượng đặt mua:</label>
+                        <div class="items__productquality">
+                            <button class="btn-subtract-qty">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input class="qualtity_items" id="soluong" type="text" placeholder="1">
+                            <button class="btn-subtract-qty">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="action">
+                            <a class="add-to-cart btn btn-default" id="btnThemVaoGioHang"
+                                href="/home/detail/@book.Id?addcart=true"> <span class="fa  fa-shopping-cart"
+                                    style="padding-right: 15px;"></span>Thêm vào giỏ hàng</a>
+                            <a class="buy-now btn btn-default"> <span class="fa  fa-share"
+                                    style="padding-right: 15px;"></span>Mua ngay</a>
+                        </div>
+                        <a class="like" href="#"><span class="fa fa-heart"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="container">
+        <h2>Thông tin chi tiết về sản phẩm</h2>
+        <div class="row">
+            <div class='col'>
+                <p>@book.BookMeta.Description</p>
+            </div>
+            @* <div class="col">
+                <p>3-8 tuổi là giai đoạn bộ não của trẻ phát triển nhanh nhất để có thể nhận thức được màu sắc, hình
+                khối, đồ vật, phát triển mạnh mẽ về cả ngôn ngữ, tư duy logic và khả năng sáng tạo... Cũng bởi thế
+                mà trẻ cần có những "công cụ" phù hợp để có thể nâng cao được toàn diện những kỹ năng của mình. Bộ
+                sách Bóc dán thông minh - Sách tranh là một "thiết kế" đặc biệt phù hợp cho trẻ ở độ tuổi này. Bộ
+                sách gồm 6 cuốn, bao hàm tổng quát các lĩnh vực phát triển tư duy cần thiết, sẽ giúp trẻ:</p>
+                <ul>
+                <li>Phát huy tối đa khả năng nhận biết thế giới xung quanh, các hình khối, đồ vật.</li>
+                <li>Nâng cao khả năng sáng tạo và tư duy logic, giúp bé tạo ra những “tác phẩm” độc đáo mang cá tính
+                riêng.</li>
+                <li>Nhận biết và phân biệt được chính xác giữa cơ thể người và động vật.</li>
+                <li>Rèn luyện khả năng ngôn ngữ linh hoạt, biết vận dụng ngôn ngữ thích hợp trong mỗi tình huống.
+                </li>
+                <li>Rèn luyện thói quen sinh hoạt nề nếp và khoa học.</li>
+                </ul>
+                </div> *@
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="container">
+            <h1>Khách hàng nhận xét</h1>
+            <div class="row flex-column">
+                <div class="col cmts">
+                    <!-- <p>3-8 tuổi là giai đoạn bộ não của trẻ phát triển nhanh nhất để có thể nhận thức được màu sắc, hình khối, đồ vật, phát triển mạnh mẽ về cả ngôn ngữ, tư duy logic và khả năng sáng tạo... Cũng bởi thế mà trẻ cần có những "công cụ" phù hợp để có thể nâng cao được toàn diện những kỹ năng của mình. Bộ sách Bóc dán thông minh - Sách tranh là một "thiết kế" đặc biệt phù hợp cho trẻ ở độ tuổi này. Bộ sách gồm 6 cuốn, bao hàm tổng quát các lĩnh vực phát triển tư duy cần thiết, sẽ giúp trẻ:</p> -->
+                    <ul>
+                        <li>
+                            <span>Vân Anh</span>
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span>2020-07-28 04:58:23</span>
+                            <p>Mình nhớ lần đầu tiên mình đọc nó là vào đầu năm lớp 10, mình chả
+                                đọng lại điều gì ngoài câu chuyện của một hoàng tử bé đi chu du các
+                                hành tinh và ở mỗi hành tinh cậu lại tìm được những “người bạn” cho
+                                mình. Mình lúc đó đích thực chỉ thấy vậy khi đọc xong cuốn sách này. .
+                            </p>
+                            <div>
+                                <span>10 lượt thích</span>
+                                <a href=""><span class="fa fa-thumbs-up"></span> thích</a>
+                                <a href=""><span class="fa fa-exclamation-triangle"></span> báo cáo</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Vân Anh</span>
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span>2020-07-28 04:58:23</span>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore unde facere, quis
+                                atque quia iusto beatae ad, cumque fuga nisi dignissimos quaerat consequatur, sequi
+                                officiis voluptatibus debitis asperiores earum deserunt.</p>
+                            <div>
+                                <span>10 lượt thích</span>
+                                <a href=""><span class="fa fa-thumbs-up"></span> thích</a>
+                                <a href=""><span class="fa fa-exclamation-triangle"></span> báo cáo</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Vân Anh</span>
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span>2020-07-28 04:58:23</span>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, architecto similique.
+                                Rerum, maxime placeat commodi neque unde sint atque natus? Quos omnis tenetur vero
+                                aperiam nam soluta odit corporis mollitia.</p>
+                            <div>
+                                <span>10 lượt thích</span>
+                                <a href=""><span class="fa fa-thumbs-up"></span> thích</a>
+                                <a href=""><span class="fa fa-exclamation-triangle"></span> báo cáo</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <h2>Nhận xét của bạn</h2>
+                <input type="text">
+                <button>Bình Luận</button>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+
+
+
+
+
+</div>

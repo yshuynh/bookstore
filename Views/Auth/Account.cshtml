@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Mua hàng";
+    List<CartItem> bookCart = Context.Session.Get<List<CartItem>>("cart");
+    int countItem = 0;
+    int sumPrice = 0;
+    foreach (CartItem cartItem in bookCart)
+    {
+        countItem += cartItem.Count;
+        sumPrice += cartItem.Count * cartItem.Book.BookMeta.Price;
+    }
+    User user = ViewBag.User;
+}
+
+@* <div class="container"> *@
+<form class="grid" asp-controller="auth" asp-action="accountsaveinfo" method="post">
+    <div id="checkout_block_address" class="checkout_block">
+        <h1 class="heading__buy">Địa Chỉ Giao Hàng</h1>
+        <div class="checkout_block-content">
+            <div class="checkout_block_address_block">
+                <input hidden name="Id" value="@user.Id"/>
+                <div class="input-group-horizontal-shippingaddress">
+                    <label for="">Họ và tên người nhận</label>
+                    <div class="input-group-texting">
+                        <input name="Name" required type="text" class="input-item" placeholder="Nhập thông tin" value="@user.Name">
+                    </div>
+                </div>
+                <div class="input-group-horizontal-shippingaddress">
+                    <label for="">Email</label>
+                    <div class="input-group-texting">
+                        <input required name="Email" type="email" class="input-item" placeholder="Nhập thông tin" value="@user.Email">
+                    </div>
+                </div>
+                <div class="input-group-horizontal-shippingaddress">
+                    <label for="">Số Điện Thoại</label>
+                    <div class="input-group-texting">
+                        <input name="PhoneNumber" required type="tel" pattern="[0]{1}[0-9]{9}" class="input-item"
+                            placeholder="Format: 0123456789" value="@user.PhoneNumber">
+                    </div>
+                </div>
+                <div class="input-group-horizontal-shippingaddress">
+                    <label for="">Địa chỉ nhận hàng</label>
+                    <div class="input-group-texting">
+                        <input name="Address" required type="text" class="input-item" placeholder="Nhập thông tin" value="@user.Address">
+                    </div>
+                </div>
+                <button class="btn-buy"><span>
+                        LƯU THÔNG TIN
+                    </span></button>
+
+            </div>
+        </div>
+    </div>
+</form>
+@* </div> *@

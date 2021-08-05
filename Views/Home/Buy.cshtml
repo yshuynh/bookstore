@@ -1,0 +1,215 @@
+@{
+    ViewData["Title"] = "Mua hàng";
+    List<CartItem> bookCart = Context.Session.Get<List<CartItem>>("cart");
+    int countItem = 0;
+    int sumPrice = 0;
+    foreach(CartItem cartItem in bookCart) {
+        countItem += cartItem.Count;
+        sumPrice += cartItem.Count * cartItem.Book.BookMeta.Price;
+    }
+    User user = ViewBag.User;
+}
+
+@* <div class="container"> *@
+    <form class="grid" method="post" asp-controller="home" asp-action="BuyExcute">
+        <div id="checkout_block_address" class="checkout_block">
+            <h1 class="heading__buy">Địa Chỉ Giao Hàng</h1>
+            <div class="checkout_block-content">
+                <div class="checkout_block_address_block">
+                    <input name="UserId" value="@user.Id" hidden/>
+                    <div class="input-group-horizontal-shippingaddress">
+                        <label for="">Họ và tên người nhận</label>
+                        <div class="input-group-texting">
+                            <input name="Name" required type="text" class="input-item" placeholder="Nhập thông tin" value="@user.Name">
+                        </div>
+                    </div>
+                    <div class="input-group-horizontal-shippingaddress">
+                        <label for="">Email</label>
+                        <div class="input-group-texting">
+                            <input name="Email" required type="email" class="input-item" placeholder="Nhập thông tin" value="@user.Email">
+                        </div>
+                    </div>
+                    <div class="input-group-horizontal-shippingaddress">
+                        <label for="">Số Điện Thoại</label>
+                        <div class="input-group-texting">
+                            <input name="PhoneNumber" required type="tel" pattern="[0]{1}[0-9]{9}" class="input-item" placeholder="Format: 0123456789" value="@user.PhoneNumber">
+                        </div>
+                    </div>
+                    <div class="input-group-horizontal-shippingaddress">
+                        <label for="">Địa chỉ nhận hàng</label>
+                        <div class="input-group-texting">
+                            <input name="Address" required type="text" class="input-item" placeholder="Nhập thông tin" value="@user.Address">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="checkout_block_paymentmethod" class="checkout_block">
+            <h1 class="heading__buy">Phương thức thanh toán</h1>
+            <div class="checkout_block-content">
+                <div class="checkout_block_radio_list">
+                    <ul id="checkout_paymentmethod" class="checkout_block_radio_list_items">
+                        <li class="checkout_block_radio_list_item">
+                            <div class="checkout_paymentmethod_with_tutorial">
+                                <div class="radio-big-with-icon-container">
+                                    <label for="" class="fhs-radio-big">
+                                        <input type="radio" class="radio-big fhs-raido-big-with-icon">
+                                        <div class="payment-name-with-icon-container">
+                                            <img class="img_paymentmethod"
+                                                src="https://cdn0.fahasa.com/skin/frontend/base/default/images/payment_icon/ico_momopay.svg"
+                                                alt="">
+                                            <div class="payment-name">Ví Momo</div>
+                                        </div>
+                                </div>
+                                </label>
+                            </div>
+                        </li>
+                        <li class="checkout_block_radio_list_item">
+                            <div class="checkout_paymentmethod_with_tutorial">
+                                <div class="radio-big-with-icon-container">
+                                    <label for="" class="fhs-radio-big">
+                                        <input type="radio" class="radio-big fhs-raido-big-with-icon">
+                                        <div class="payment-name-with-icon-container">
+                                            <img class="img_paymentmethod"
+                                                src="https://cdn0.fahasa.com/skin/frontend/base/default/images/payment_icon/ico_banktransfer.svg"
+                                                alt="">
+                                            <div class="payment-name">Chuyển Khoản Ngân Hàng</div>
+                                        </div>
+                                </div>
+                                </label>
+                            </div>
+                        </li>
+                        <li class="checkout_block_radio_list_item">
+                            <div class="checkout_paymentmethod_with_tutorial">
+                                <div class="radio-big-with-icon-container">
+                                    <label for="" class="fhs-radio-big">
+                                        <input type="radio" class="radio-big fhs-raido-big-with-icon">
+                                        <div class="payment-name-with-icon-container">
+                                            <img class="img_paymentmethod"
+                                                src="https://cdn0.fahasa.com/skin/frontend/base/default/images/payment_icon/ico_zalopayatm.svg"
+                                                alt="">
+                                            <div class="payment-name">ATM/Internet Banking</div>
+                                        </div>
+                                </div>
+                                </label>
+                            </div>
+                        </li>
+                        <li class="checkout_block_radio_list_item">
+                            <div class="checkout_paymentmethod_with_tutorial">
+                                <div class="radio-big-with-icon-container">
+                                    <label for="" class="fhs-radio-big">
+                                        <input type="radio" class="radio-big fhs-raido-big-with-icon">
+                                        <div class="payment-name-with-icon-container">
+                                            <img class="img_paymentmethod"
+                                                src="https://cdn0.fahasa.com/skin/frontend/base/default/images/payment_icon/ico_zalopaycc.svg"
+                                                alt="">
+                                            <div class="payment-name">Visa/Master/JCB</div>
+                                        </div>
+                                </div>
+                                </label>
+                            </div>
+                        </li>
+                        <li class="checkout_block_radio_list_item">
+                            <div class="checkout_paymentmethod_with_tutorial">
+                                <div class="radio-big-with-icon-container">
+                                    <label for="" class="fhs-radio-big">
+                                        <input type="radio" class="radio-big fhs-raido-big-with-icon">
+                                        <div class="payment-name-with-icon-container">
+                                            <img class="img_paymentmethod"
+                                                src="https://cdn0.fahasa.com/skin/frontend/base/default/images/payment_icon/ico_cashondelivery.svg"
+                                                alt="">
+                                            <div class="payment-name">Thanh Toán Khi Nhận Hàng</div>
+                                        </div>
+                                </div>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="checkout_block_product" class="checkout_block">
+            <h1 class="heading__buy">Kiểm tra lại hàng</h1>
+            <div class="checkout_block-content">
+                @foreach (CartItem cartItem in bookCart)
+                {
+                    <div class="checkout_products">
+                        <div class="checkout_products_items">
+                            <div class="checkout_products_item_img">
+                                <img style="width: 150px; height:150px;" src="@cartItem.Book.BookMeta.BgUrl"
+                                    alt="">
+                            </div>
+                            <div class="checkout_products_item_detail">
+                                <div class="checkout_products_item_name">@cartItem.Book.Title</div>
+                                <div class="checkout_products_item_price">@cartItem.Book.BookMeta.Price đ</div>
+                                <div class="checkout_products_item_quality">@cartItem.Count</div>
+                                <div class="checkout_products_item_total">@(cartItem.Book.BookMeta.Price * cartItem.Count) đ</div>
+                            </div>
+                        </div>
+                    </div>   
+                }
+                @* <div class="checkout_products">
+                    <div class="checkout_products_items">
+                        <div class="checkout_products_item_img">
+                            <img src="https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/145x145/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195891.jpg"
+                                alt="">
+                        </div>
+                        <div class="checkout_products_item_detail">
+                            <div class="checkout_products_item_name">Bóc Dán Thông Minh - Mùa Hè</div>
+                            <div class="checkout_products_item_price">38,400đ</div>
+                            <div class="checkout_products_item_quality">1</div>
+                            <div class="checkout_products_item_total">38,400đ</div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout_products">
+                    <div class="checkout_products_items">
+                        <div class="checkout_products_item_img">
+                            <img src="https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/145x145/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195891.jpg"
+                                alt="">
+                        </div>
+                        <div class="checkout_products_item_detail">
+                            <div class="checkout_products_item_name">Bóc Dán Thông Minh - Mùa Hè</div>
+                            <div class="checkout_products_item_price">38,400đ</div>
+                            <div class="checkout_products_item_quality">1</div>
+                            <div class="checkout_products_item_total">38,400đ</div>
+
+
+                        </div>
+                    </div>
+                </div> *@
+
+            </div>
+        </div>
+        <div class="bsidebar-content">
+            <div class="container-bsidebar">
+                <div class="checkout_total">
+                    <div class="checkout_total_subtotal">
+                        <div>Thành Tiền</div>
+                        <div>@sumPrice đ</div>
+                    </div>
+                    <div class="checkout_total_shipping">
+                        <div>Phí Vận Chuyển</div>
+                        <div>0đ</div>
+                    </div>
+                    <div class="checkout_total_grand_total">
+                        <div>
+                            Tổng Số Tiền (gồm VAT)
+                        </div>
+                        <div>@sumPrice đ</div>
+
+                    </div>
+                    <button type="submit" class="btn-buy"><span>
+                            THANH TOÁN
+                        </span></button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+@* </div> *@

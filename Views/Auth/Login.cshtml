@@ -1,0 +1,110 @@
+@model bool
+@{
+    @* Layout = "_Layout_Login"; *@
+    ViewData["Title"] = "Home Page";
+    bool isRegister = Model;
+    string formRegister;
+    string formLogin;
+    if (isRegister) {
+        formRegister = "display: flex;";
+        formLogin = "display: none;";
+    } else {
+        formLogin = "display: flex;";
+        formRegister = "display: none;";
+    }
+}
+
+<!-- Modal -->
+<div class="modal " id="modal" style="@formRegister">
+    <div class="modal__body border-light border rounded">
+        <!-- Register form -->
+        <form class="auth__form auth__form-signin">
+            <div class="auth__form-container">
+                <div class="auth__form-header">
+                    <h3 class="auth__form-heading">Đăng ký</h3>
+                    <a id="btn-login" class="auth__form-switch-btn">Đăng nhập</a>
+                </div>
+                <div class="auth__form-form">
+                    <div class="auth__form-group">
+                        <input type="text" class="auth__form-input" placeholder="Nhập email của bạn">
+                    </div>
+                    <div class="auth__form-group">
+                        <input type="text" class="auth__form-input" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="auth__form-group">
+                        <input type="text" class="auth__form-input" placeholder="Nhập lại mật khẩu">
+                    </div>
+
+                </div>
+                <div class="auth__form-info">
+                    <p>Bằng việc đăng ký,bạn đã đồng ý với chúng tôi về
+                        <a href="">Điều khoản dịch vụ</a> & <a href="">Chính sách bảo mật</a>
+                    </p>
+                </div>
+                <div class="auth__form-btn">
+                    <button asp-controller="home" asp-action="index" class="btn btn--normal">QUAY LẠI</button>
+                    <button class="btn btn--primary">ĐĂNG KÝ</button>
+                </div>
+            </div>
+
+            <div class="auth__form-social">
+                <a href="" class="auth__form-social-facebook btn btn--sizes btn--withicon ">
+                    <i class="fab fa-facebook"></i>
+                    <span class="auth__form-social-label">Kết nối với Facebook</span>
+                </a>
+                <a href="" class="auth__form-social-google btn btn--sizes btn--withicon ">
+                    <i class="fab fa-google"></i>
+                    <span class="auth__form-social-label">Kết nối với Google</span>
+                </a>
+            </div>
+        </form>
+
+
+        <!--Login form  -->
+
+    </div>
+</div>
+<div class="modal1" style="@formLogin">
+    <div class="modal__body border-light border rounded">
+        <!-- Register form -->
+        <!--Login form  -->
+        <form class="auth__form auth__form-login" method="post" action="/auth/login">
+            <div class="auth__form-container">
+                <div class="auth__form-header">
+                    <h3 class="auth__form-heading">Đăng nhập</h3>
+                    <a id="btn-sign" class="auth__form-switch-btn">Đăng ký</a>
+                </div>
+                <div class="auth__form-form">
+                    <div class="auth__form-group">
+                        <input name="email" type="text" class="auth__form-input" placeholder="Nhập email của bạn">
+                    </div>
+                    <div class="auth__form-group">
+                        <input name="password" type="text" class="auth__form-input" placeholder="Nhập mật khẩu">
+                    </div>
+
+                </div>
+                <div class="auth__form-aside">
+                    <div class="auth__form-help">
+                        <a href="" class="auth__form-link auth__form-fogot">Quên mật khẩu</a>
+                        <span class="auth__form-help-sperate"></span>
+                        <a href="" class="auth__form-link auth__form-help-link">Cần trợ giúp ?</a>
+                    </div>
+                </div>
+                <div class="auth__form-btn">
+                    <button asp-controller="home" asp-action="index" class="btn btn--normal">QUAY LẠI</button>
+                    <button type="submit" class="btn btn--primary">ĐĂNG NHẬP</button>
+                </div>
+        </form>
+
+        <div class="auth__form-social">
+            <a href="" class="auth__form-social-facebook btn btn--sizes btn--withicon ">
+                <i class="fab fa-facebook"></i>
+                <span class="auth__form-social-label">Kết nối với Facebook</span>
+            </a>
+            <a href="" class="auth__form-social-google btn btn--sizes btn--withicon ">
+                <i class="fab fa-google"></i>
+                <span class="auth__form-social-label">Kết nối với Google</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+@{
+
+    ViewData["Title"] = "Đơn hàng";
+
+    List<Order> order_list = ViewBag.Orders;
+
+    int countItem = 0;
+
+    int sumPrice = 0;
+    @* foreach(Orders order in order_list) {
+        countItem += cartItem.Count;
+        sumPrice += cartItem.Count * cartItem.Book.BookMeta.Price;
+        } *@
+}
+
+<div class="grid">
+    <h1 class="heading__cart">Đơn hàng</h1>
+    <div class="grid__row app__content">
+        <div class="product_leftcart grid__column-8">
+            @foreach (Order order in order_list)
+            {
+                <form class="items_productcart" method="get" asp-action="changecartitem" asp-controller="home">
+                    <div class="d-flex flex-row" style="width: 600px; overflow:hidden;">
+                        @foreach (CartItem cartItem in order.Cart)
+                        {
+                            <img src="@cartItem.Book.BookMeta.BgUrl" alt="" style="width: 150px; height:150px;">
+
+                        }
+                    </div>
+                    <div class="items__productinfor" style="margin-left: 20px;">
+                        <p class="items__productinfor-text">Đơn hàng số: @order.Id</p>
+                        <p class="items__productinfor-money">@order.Name</p>
+                        <p class="items__productinfor-money">@order.Email</p>
+                        <a class="items__productinfor-money" href="/home/orderdetail?orderId=@order.Id">Xem chi tiết đơn hàng</a>
+                    </div>
+                    <div class="number__productcart">
+                        <div class="items__productquality">
+                            @* <button name="btnaction" class="btn-subtract-qty" value="sub"> *@
+                            @* <i class="fas fa-minus"></i> *@
+                            @* </button> *@
+                            <input class="qualtity_items" type="text" value="@order.Count">
+                            @* <button name="btnaction" class="btn-subtract-qty" value="add"> *@
+                            @* <i class="fas fa-plus"></i> *@
+                            @* </button> *@
+                        </div>
+                        <div class="items_producttotal">
+                            <p class="items_producttoal-text">Thành tiền</p>
+                            <p class="items_producttoal-money">@order.Cost</p>
+                        </div>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>

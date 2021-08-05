@@ -1,0 +1,136 @@
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\appsettings.Development.json
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\appsettings.json
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.exe
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.deps.json
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.runtimeconfig.json
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.runtimeconfig.dev.json
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.pdb
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.Views.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\book.Views.pdb
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Google.Protobuf.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Options.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Primitives.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\MySql.Data.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\MySqlConnector.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\System.Collections.Immutable.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\System.ComponentModel.Annotations.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\System.Configuration.ConfigurationManager.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\System.Diagnostics.DiagnosticSource.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\System.Security.Cryptography.ProtectedData.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.csprojAssemblyReference.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\staticwebassets\book.StaticWebAssets.Manifest.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\staticwebassets\book.StaticWebAssets.xml
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.MvcApplicationPartsAssemblyInfo.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.RazorAssemblyInfo.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.RazorAssemblyInfo.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.AssemblyInfoInputs.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.AssemblyInfo.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.TagHelpers.input.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.TagHelpers.output.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.RazorCoreGenerate.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Cart.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.RazorTargetAssemblyInfo.cache
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.RazorTargetAssemblyInfo.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.Views.pdb
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.csproj.CopyComplete
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\book.pdb
+E:\Location for C\Project Programming\Dotnet\0306\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Detail.cshtml.g.cs
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Bcl.HashCode.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Binder.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\Pomelo.JsonObject.dll
+E:\Location for C\Project Programming\Dotnet\0306\book\bin\Debug\netcoreapp3.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\appsettings.Development.json
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\appsettings.json
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.exe
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.deps.json
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.runtimeconfig.json
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.runtimeconfig.dev.json
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.pdb
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.Views.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\book.Views.pdb
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Google.Protobuf.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Bcl.HashCode.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Caching.Memory.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyInjection.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Options.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Primitives.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\MySql.Data.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\MySqlConnector.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\Pomelo.JsonObject.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\System.Collections.Immutable.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\System.ComponentModel.Annotations.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\System.Configuration.ConfigurationManager.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\System.Diagnostics.DiagnosticSource.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\System.Security.Cryptography.ProtectedData.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.csproj.AssemblyReference.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.AssemblyInfoInputs.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.AssemblyInfo.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.csproj.CoreCompileInputs.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.MvcApplicationPartsAssemblyInfo.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.RazorAssemblyInfo.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.RazorAssemblyInfo.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\staticwebassets\book.StaticWebAssets.Manifest.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\staticwebassets\book.StaticWebAssets.xml
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\scopedcss\bundle\book.styles.css
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.TagHelpers.input.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.TagHelpers.output.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.RazorCoreGenerate.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Cart.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Detail.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.RazorTargetAssemblyInfo.cache
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.RazorTargetAssemblyInfo.cs
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.Views.pdb
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.csproj.CopyComplete
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.dll
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.pdb
+D:\STUDY\Nam4Ki2\Hoc may\book\obj\Debug\netcoreapp3.0\book.genruntimeconfig.cache
