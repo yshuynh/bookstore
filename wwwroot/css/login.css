@@ -322,7 +322,7 @@
 }
 
 .auth__form-container{
-    padding: 0 32px;
+     padding: 5px 32px; 
 }
 .auth__form-header{
     display: flex;
@@ -335,13 +335,13 @@
     font-size: 2rem;
     font-weight: 600;
     color: var(--text-color);
-
 }
 .auth__form-switch-btn{
     font-size: 1.6rem;
     color:var(--primary-color);
     font-weight: 500;
     cursor: pointer;
+   
 }
 .auth__form-form{
     /* margin-top: 20px; */
@@ -398,7 +398,7 @@
 }
 .auth__form-social{
     margin-top: 25px;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     display: flex;
     justify-content: center;
     align-items: center;
