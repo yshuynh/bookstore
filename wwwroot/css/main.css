@@ -979,11 +979,12 @@
     margin:6px 0px;
 }
 .home__product-itemsprice{
-    
-
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 .home__product-itemsoldprice{
-     margin-left: 10px; 
     font-size: 1.3rem;
     color: #666;
     text-decoration: line-through;
@@ -999,7 +1000,7 @@
 .home__product-itemsaction{
     display: flex;
     justify-content: space-between;
-    margin: 4px 10px 0;
+    margin: 4px 4px 0;
 
 }
 .home__product-itemslike{

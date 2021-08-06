@@ -186,8 +186,8 @@
                                 </div>
                                 <h4 class="home__product-itemsname">@book.Title</h4>
                                 <div class="home__product-itemsprice">
-                                    <span class="home__product-itemsoldprice">@book.BookMeta.OriginalPrice VND</span>
-                                    <span class="home__product-itemsnewprice">@book.BookMeta.Price VND</span>
+                                    <span class="home__product-itemsoldprice">@String.Format("{0:n0}", book.BookMeta.OriginalPrice) VND</span>
+                                    <span class="home__product-itemsnewprice">@String.Format("{0:n0}", book.BookMeta.Price) VND</span>
 
                                 </div>
                                 <div class="home__product-itemsaction">
