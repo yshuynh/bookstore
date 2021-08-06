@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\book.csproj",
+  "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\book.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,78 +15619,78 @@
   "RootNamespace": "book",
   "Documents": [
     {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\Cart.cshtml",
-      "TargetPath": "Views\\Home\\Cart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Auth\\Login.cshtml",
-      "TargetPath": "Views\\Auth\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\Buy.cshtml",
-      "TargetPath": "Views\\Home\\Buy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\Detail.cshtml",
-      "TargetPath": "Views\\Home\\Detail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\OrderDetail.cshtml",
-      "TargetPath": "Views\\Home\\OrderDetail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Home\\Orders.cshtml",
-      "TargetPath": "Views\\Home\\Orders.cshtml",
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Auth\\Account.cshtml",
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Auth\\Account.cshtml",
       "TargetPath": "Views\\Auth\\Account.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\STUDY\\Nam4Ki2\\Hoc may\\book\\Views\\Shared\\_Layout_Login.cshtml",
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\Orders.cshtml",
+      "TargetPath": "Views\\Home\\Orders.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\Cart.cshtml",
+      "TargetPath": "Views\\Home\\Cart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Auth\\Login.cshtml",
+      "TargetPath": "Views\\Auth\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\Buy.cshtml",
+      "TargetPath": "Views\\Home\\Buy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Shared\\_Layout_Login.cshtml",
       "TargetPath": "Views\\Shared\\_Layout_Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\Detail.cshtml",
+      "TargetPath": "Views\\Home\\Detail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Lumi\\Documents\\GitHub\\FinalBook\\Views\\Home\\OrderDetail.cshtml",
+      "TargetPath": "Views\\Home\\OrderDetail.cshtml",
       "FileKind": "mvc"
     }
   ],

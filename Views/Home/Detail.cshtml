@@ -39,13 +39,14 @@
                     </div>
                     <span class="review-no">99 reviews</span>
                 </div>
-                <p class="book-info"><span>Nhà cung cấp: </span> <span class="info">@book.BookMeta.Publisher.Name</span>
-                    <br><br><span>Tác giả: </span> <span class="info">Hannah Watson, Malu Lenzi</span>
+                <p class="book-info"><span>Nhà cung cấp: </span>
+                    <span class="info">@book.BookMeta.Publisher.Name</span>
+                    <br><br><span>Tác giả: </span> <span class="info1">Hannah Watson, Malu Lenzi</span>
                 </p>
-                <small class="text-muted">Giá cũ: <s><span>@String.Format("{0:n0}", book.BookMeta.OriginalPrice)
+                <small>Giá cũ: <s><span>@String.Format("{0:n0}", book.BookMeta.OriginalPrice)
                             vnđ</span></s></small>
                 <h3 class="price">Giá hiện tại: <span>@String.Format("{0:n0}", book.BookMeta.Price) vnđ</span></h4>
-                    <h3 class="price">Tiết kiệm: <span class="sale-percent">@book.BookMeta.DiscountPercent%</span></h4>
+                    <h3 class="pricesale">Tiết kiệm: <span class="sale-percent">@book.BookMeta.DiscountPercent%</span></h4>
                         <label class="book-info" for="soluong">Số lượng đặt mua:</label>
                         <div class="items__productquality">
                             <button class="btn-subtract-qty">
@@ -60,10 +61,7 @@
                             <a class="add-to-cart btn btn-default" id="btnThemVaoGioHang"
                                 href="/home/detail/@book.Id?addcart=true"> <span class="fa  fa-shopping-cart"
                                     style="padding-right: 15px;"></span>Thêm vào giỏ hàng</a>
-                            <a class="buy-now btn btn-default"> <span class="fa  fa-share"
-                                    style="padding-right: 15px;"></span>Mua ngay</a>
                         </div>
-                        <a class="like" href="#"><span class="fa fa-heart"></span></a>
             </div>
         </div>
     </div>
