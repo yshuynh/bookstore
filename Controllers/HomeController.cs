@@ -112,6 +112,8 @@ namespace book.Controllers
             ViewBag.MaxPage = (int)(books.Count+pageSize-1)/pageSize;
             if (order == "bestseller")
                 books = books.OrderByDescending(o => o.CartUsers.Where(c => c.OrderId != null).ToList().Sum(b => b.Count)).ToList<Book>();
+            else if (order == "popular")
+                books = books.OrderByDescending(o => o.Ratings.Count).ToList<Book>();
             else
                 books = books.OrderByDescending(o=>o.Id).ToList();
             books = books.GetRange(pageSize*(page-1), Math.Min(pageSize, books.Count - pageSize*(page-1)));

@@ -175,28 +175,28 @@
                         </li> *@
                     </ul>
                 </div>
-                @if(userLogged != null)
-                {
-                    <form class="form-comment" asp-controller="home" asp-action="CreateRating" method="post">
-                        <h2>Nhận xét của bạn</h2>
-                        <input hidden name="bookId" value="@book.Id"/>
-                        <input hidden id="userRate" name="rate" value="3"/>
-                        <div class="stars-click">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <input type="text" name="comment">
-                        <button type="submit">Bình Luận</button>
-                    </form>
-                }
-                else 
-                {
-                    <h3>Hãy đăng nhập để viết bình luận.</h3>
-                }
             </div>
+            @if(userLogged != null)
+            {
+                <form class="form-comment" asp-controller="home" asp-action="CreateRating" method="post">
+                    <h1>Nhận xét của bạn</h1>
+                    <input hidden name="bookId" value="@book.Id"/>
+                    <input hidden id="userRate" name="rate" value="3"/>
+                    <div class="stars-click" style="font-size: 20px;">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <input type="text" name="comment">
+                    <button type="submit">Bình Luận</button>
+                </form>
+            }
+            else 
+            {
+                <h1>Hãy đăng nhập để viết bình luận.</h1>
+            }
         </div>
     </div>
     <!--  -->
