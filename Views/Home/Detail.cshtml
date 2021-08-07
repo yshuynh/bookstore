@@ -27,7 +27,7 @@
             <div class="preview col-md-4">
                 <img src="@book.BookMeta.BgUrl" id="book-detail-img">
             </div>
-            <div class="details col-md-8">
+            <form class="details col-md-8" asp-controller="home" asp-action="detail" method="get">
                 <h3 class="book-title">@book.Title</h3>
                 <div class="rating">
                     <div class="stars">
@@ -50,20 +50,21 @@
                     <h3 class="pricesale">Tiết kiệm: <span class="sale-percent">@book.BookMeta.DiscountPercent%</span></h4>
                         <label class="book-info" for="soluong">Số lượng đặt mua:</label>
                         <div class="items__productquality">
-                            <button class="btn-subtract-qty">
+                            <button type="button" class="btn-subtract-qty">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <input class="qualtity_items" id="soluong" type="text" placeholder="1">
-                            <button class="btn-subtract-qty">
+                            <input name="addcartcount" class="qualtity_items" id="soluong" type="text" placeholder="1">
+                            <button type="button" class="btn-subtract-qty">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </div>
+                        <input name="addcart" value="true" hidden/>
                         <div class="action">
-                            <a class="add-to-cart btn btn-default" id="btnThemVaoGioHang"
+                            <button type="submit" class="add-to-cart btn btn-default" id="btnThemVaoGioHang"
                                 href="/home/detail/@book.Id?addcart=true"> <span class="fa  fa-shopping-cart"
-                                    style="padding-right: 15px;"></span>Thêm vào giỏ hàng</a>
+                                    style="padding-right: 15px;"></span>Thêm vào giỏ hàng</button>
                         </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

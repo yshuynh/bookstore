@@ -140,7 +140,7 @@ namespace book.Controllers
             return View();
         }
 
-        public IActionResult Detail(int id, bool addcart)
+        public IActionResult Detail(int id, bool addcart, int addcartcount)
         {
             if (id == null)
             {
@@ -165,12 +165,12 @@ namespace book.Controllers
                     bool isDuplicate = false;
                     for (int i=0; i<cart.Count; i++) {
                         if (cart[i].Book.Id == book.Id) {
-                            cart[i].Count++;
+                            cart[i].Count += addcartcount;
                             isDuplicate = true;
                             break;
                         }
                     }
-                    if (!isDuplicate) cart.Add(new CartItem{Book=book, Count=1, Id=cart.Count});
+                    if (!isDuplicate) cart.Add(new CartItem{Book=book, Count=addcartcount, Id=cart.Count});
                     HttpContext.Session.Set<List<CartItem>>("cart", cart);
                 }
                 else

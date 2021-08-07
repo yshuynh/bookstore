@@ -30,23 +30,23 @@ $(document).ready(function(){
     // $('.home__product-items').click(function(e) {
     //     window.location='/detail';
     // });
-    document.querySelector('.search__list-history').onmousedown=function(e){
-        e.preventDefault();
-    };
+    // document.querySelector('.search__list-history').onmousedown=function(e){
+    //     e.preventDefault();
+    // };
     document.querySelector('.heading__main').addEventListener("click",function(){
         window.location='index.html'
     });
-    // $('.fa-plus').click(function(e) {
-    //     var inputEle = $(this).parent().siblings('input');
-    //     var quantity = inputEle.val() || 1;
-    //     inputEle.val(++quantity);
-    // });
-    // $('.fa-minus').click(function(e) {
-    //     var inputEle = $(this).parent().siblings('input');
-    //     var quantity = inputEle.val() || 1;
-    //     if (quantity == 0 )
-    //         return;
-    //     inputEle.val(--quantity);
-    // });
+    $('.fa-plus').click(function(e) {
+        var inputEle = $(this).parent().siblings('input');
+        var quantity = inputEle.val() || 1;
+        inputEle.val(++quantity);
+    });
+    $('.fa-minus').click(function(e) {
+        var inputEle = $(this).parent().siblings('input');
+        var quantity = inputEle.val() || 1;
+        if (quantity == 1 )
+            return;
+        inputEle.val(--quantity);
+    });
 });
     
