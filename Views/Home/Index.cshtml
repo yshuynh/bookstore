@@ -231,12 +231,22 @@
                                         <i class="fas fa-heart home__product-items-icon-fill"></i>
                                         <i class="far fa-heart home__product-items-icon-empty"></i>
                                     </div>
+                                    @{
+                                        double sum = 0;
+                                        int count = 0;
+                                        foreach (Rating rating in book.Ratings)
+                                        {
+                                            sum += rating.Rate;
+                                            count++;
+                                        }
+                                        double totalRate = sum/count;
+                                    }
                                     <div class="home__product-itemsvote">
-                                        <i class="home__product-items-startgold fas fa-star"></i>
-                                        <i class="home__product-items-startgold fas fa-star"></i>
-                                        <i class="home__product-items-startgold fas fa-star"></i>
-                                        <i class="home__product-items-startgold fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                        <i class='@(totalRate>=1?"home__product-items-startgold":"") fas fa-star'></i>
+                                        <i class='@(totalRate>=2?"home__product-items-startgold":"") fas fa-star'></i>
+                                        <i class='@(totalRate>=3?"home__product-items-startgold":"") fas fa-star'></i>
+                                        <i class='@(totalRate>=4?"home__product-items-startgold":"") fas fa-star'></i>
+                                        <i class='@(totalRate>=5?"home__product-items-startgold":"") fas fa-star'></i>
                                     </div>
                                 </div>
                                 <div class="home__product-itemsfavorite">

@@ -48,5 +48,15 @@ $(document).ready(function(){
             return;
         inputEle.val(--quantity);
     });
+    var listStars = $('.stars-click').children();
+    for (var i=0; i<listStars.length; i++) {
+        $(listStars[i]).click(function(e) {
+            $('#userRate').val($(this).prevAll().length + 1);
+            $(this).prevAll().addClass('checked');
+            $(this).addClass('checked');
+            $(this).nextAll().removeClass('checked');
+        });
+        
+    }
 });
     

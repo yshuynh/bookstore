@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home Page";
     var book = Model;
+    User userLogged = Context.Session.Get<User>("user_login");
 }
 @section Styles
 {
@@ -30,14 +31,24 @@
             <form class="details col-md-8" asp-controller="home" asp-action="detail" method="get">
                 <h3 class="book-title">@book.Title</h3>
                 <div class="rating">
+                    @{
+                        double sum = 0;
+                        int count = 0;
+                        foreach (Rating rating in book.Ratings)
+                        {
+                            sum += rating.Rate;
+                            count++;
+                        }
+                        double totalRate = sum/count;
+                    }
                     <div class="stars">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                        <span class='fa fa-star @(totalRate>=1?"checked":"")'></span>
+                        <span class='fa fa-star @(totalRate>=2?"checked":"")'></span>
+                        <span class='fa fa-star @(totalRate>=3?"checked":"")'></span>
+                        <span class='fa fa-star @(totalRate>=4?"checked":"")'></span>
+                        <span class='fa fa-star @(totalRate>=5?"checked":"")'></span>
                     </div>
-                    <span class="review-no">99 reviews</span>
+                    <span class="review-no">@count reviews</span>
                 </div>
                 <p class="book-info"><span>Nhà cung cấp: </span>
                     <span class="info">@book.BookMeta.Publisher.Name</span>
@@ -102,28 +113,29 @@
                 <div class="col cmts">
                     <!-- <p>3-8 tuổi là giai đoạn bộ não của trẻ phát triển nhanh nhất để có thể nhận thức được màu sắc, hình khối, đồ vật, phát triển mạnh mẽ về cả ngôn ngữ, tư duy logic và khả năng sáng tạo... Cũng bởi thế mà trẻ cần có những "công cụ" phù hợp để có thể nâng cao được toàn diện những kỹ năng của mình. Bộ sách Bóc dán thông minh - Sách tranh là một "thiết kế" đặc biệt phù hợp cho trẻ ở độ tuổi này. Bộ sách gồm 6 cuốn, bao hàm tổng quát các lĩnh vực phát triển tư duy cần thiết, sẽ giúp trẻ:</p> -->
                     <ul>
-                        <li>
-                            <span>Vân Anh</span>
-                            <div class="stars">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <span>2020-07-28 04:58:23</span>
-                            <p>Mình nhớ lần đầu tiên mình đọc nó là vào đầu năm lớp 10, mình chả
-                                đọng lại điều gì ngoài câu chuyện của một hoàng tử bé đi chu du các
-                                hành tinh và ở mỗi hành tinh cậu lại tìm được những “người bạn” cho
-                                mình. Mình lúc đó đích thực chỉ thấy vậy khi đọc xong cuốn sách này. .
-                            </p>
-                            <div>
-                                <span>10 lượt thích</span>
-                                <a href=""><span class="fa fa-thumbs-up"></span> thích</a>
-                                <a href=""><span class="fa fa-exclamation-triangle"></span> báo cáo</a>
-                            </div>
-                        </li>
-                        <li>
+                        @foreach (Rating rating in book.Ratings.Reverse())
+                        {
+                            <li>
+                                <span>@rating.User.Name</span>
+                                <div class="stars">
+                                    <span class='fa fa-star @(rating.Rate >= 1?"checked":"")'></span>
+                                    <span class='fa fa-star @(rating.Rate >= 2?"checked":"")'></span>
+                                    <span class='fa fa-star @(rating.Rate >= 3?"checked":"")'></span>
+                                    <span class='fa fa-star @(rating.Rate >= 4?"checked":"")'></span>
+                                    <span class='fa fa-star @(rating.Rate >= 5?"checked":"")'></span>
+                                </div>
+                                <span>@rating.Created</span>
+                                <p>@rating.Comment
+                                </p>
+                                @* <div>
+                                    <span>10 lượt thích</span>
+                                    <a href=""><span class="fa fa-thumbs-up"></span> thích</a>
+                                    <a href=""><span class="fa fa-exclamation-triangle"></span> báo cáo</a>
+                                </div> *@
+                            </li>
+                        }
+                        
+                        @* <li>
                             <span>Vân Anh</span>
                             <div class="stars">
                                 <span class="fa fa-star checked"></span>
@@ -160,12 +172,30 @@
                                 <a href=""><span class="fa fa-thumbs-up"></span> thích</a>
                                 <a href=""><span class="fa fa-exclamation-triangle"></span> báo cáo</a>
                             </div>
-                        </li>
+                        </li> *@
                     </ul>
                 </div>
-                <h2>Nhận xét của bạn</h2>
-                <input type="text">
-                <button>Bình Luận</button>
+                @if(userLogged != null)
+                {
+                    <form class="form-comment" asp-controller="home" asp-action="CreateRating" method="post">
+                        <h2>Nhận xét của bạn</h2>
+                        <input hidden name="bookId" value="@book.Id"/>
+                        <input hidden id="userRate" name="rate" value="3"/>
+                        <div class="stars-click">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <input type="text" name="comment">
+                        <button type="submit">Bình Luận</button>
+                    </form>
+                }
+                else 
+                {
+                    <h3>Hãy đăng nhập để viết bình luận.</h3>
+                }
             </div>
         </div>
     </div>

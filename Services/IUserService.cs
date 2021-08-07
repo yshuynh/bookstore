@@ -16,5 +16,6 @@ namespace book.Services
         public void DeleteCart(int cartId);
         public void UpdateUserInfo(User newUserInfo);
         public void ResetCart(int userId);
+        public void CreateRating(int userId, int bookId, int rate, string comment);
     }
 }

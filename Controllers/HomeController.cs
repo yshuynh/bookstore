@@ -242,10 +242,13 @@ namespace book.Controllers
             return View();
         }
 
-        // public IActionResult CreateRating(int bookId)
-        // {
-        //     return 
-        // }
+        public IActionResult CreateRating(int bookId, int rate, string comment)
+        {
+            User userLogged = HttpContext.Session.Get<User>("user_login");
+            if (userLogged == null) return NotFound();
+            _userService.CreateRating(userLogged.Id, bookId, rate, comment);
+            return Redirect("detail/" + bookId);
+        }
 
         // public IActionResult Account()
         // {

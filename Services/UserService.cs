@@ -159,5 +159,12 @@ namespace book.Services
             user.PhoneNumber = newUserInfo.PhoneNumber;
             _context.SaveChanges();
         }
+
+        public void CreateRating(int userId, int bookId, int rate, string comment)
+        {
+            Rating rating = new Rating{UserId=userId, BookId=bookId, Rate=rate, Comment=comment};
+            _context.Ratings.Add(rating);
+            _context.SaveChanges();
+        }
     }
 }

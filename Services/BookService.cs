@@ -50,6 +50,7 @@ namespace book.Services
                 .Include(b => b.BookMeta)
                     .ThenInclude(bm => bm.Author)
                 .Include(b => b.CartUsers)
+                .Include(b => b.Ratings)
                 .AsNoTracking()    
                 .ToList();
 
@@ -68,6 +69,8 @@ namespace book.Services
                     .ThenInclude(bm => bm.Publisher)
                 .Include(b => b.BookMeta)
                     .ThenInclude(bm => bm.Author)
+                .Include(b => b.Ratings)
+                    .ThenInclude(b => b.User)
                 .AsNoTracking()
                 .FirstOrDefault(b => b.Id == id);
             // var book = _context.Books
@@ -77,6 +80,22 @@ namespace book.Services
             //     .FirstOrDefault(b => b.Id == book.Id);
 
             return book;    
+        }
+
+        public List<Rating> GetRatings(int id)
+        {
+            var list = _context.Ratings
+                .Include(b => b.User)
+                .AsNoTracking()
+                .Where(b => b.BookId == id)
+                .ToList<Rating>();
+            // var book = _context.Books
+            //     .AsNoTracking()
+            //     .FirstOrDefault(b => b.Id == id);
+            // book.BookMeta = _context.BookMetas
+            //     .FirstOrDefault(b => b.Id == book.Id);
+
+            return list;    
         }
     }
 }

@@ -36,5 +36,8 @@ namespace book.Models
 
         [JsonIgnore]
         public virtual ICollection<CartItem> CartUsers { get; set; }
+        
+        [JsonIgnore]
+        public virtual ICollection<Rating> Ratings { get; set; }
     }
 }
