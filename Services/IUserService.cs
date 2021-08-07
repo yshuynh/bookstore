@@ -10,7 +10,7 @@ namespace book.Services
         public User Register(string email, string password, string name);
         public User GetUserByEmail(string email);
         public User GetDetailUserById(int id);
-        public void AddCart(int userId, Book book);
+        public void AddCart(int userId, Book book, int addcartcount);
         public void AddCart(int cartId);
         public void SubCart(int cartId);
         public void DeleteCart(int cartId);

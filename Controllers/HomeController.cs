@@ -175,7 +175,7 @@ namespace book.Controllers
                 }
                 else
                 {
-                    _userService.AddCart(userLogged.Id, book);
+                    _userService.AddCart(userLogged.Id, book, addcartcount);
                 }
             }
 

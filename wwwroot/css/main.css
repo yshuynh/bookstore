@@ -981,8 +981,8 @@
 .home__product-itemsprice{
     display: flex;
     justify-content: space-between;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 .home__product-itemsoldprice{
     font-size: 1.3rem;

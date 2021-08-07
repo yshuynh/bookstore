@@ -93,18 +93,18 @@ namespace book.Services
             return GetUserByEmail(email);
         }
 
-        public void AddCart(int userId, Book book)
+        public void AddCart(int userId, Book book, int addcartcount)
         {
             CartItem checkItem = _context.CartItem.FirstOrDefault(b => b.UserId==userId && b.BookId==book.Id);
             if (checkItem == null)
             {
-                CartItem newCartItem = new CartItem{UserId=userId, BookId=book.Id, Count=1};
+                CartItem newCartItem = new CartItem{UserId=userId, BookId=book.Id, Count=addcartcount};
                 _context.CartItem.Add(newCartItem);
                 _context.SaveChanges();
             }
             else 
             {
-                checkItem.Count++;
+                checkItem.Count += addcartcount;
                 _context.SaveChanges();
             }
         }
