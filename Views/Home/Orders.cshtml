@@ -20,19 +20,28 @@
             @foreach (Order order in order_list)
             {
                 <form class="items_productcart" method="get" asp-action="changecartitem" asp-controller="home">
-                    <div class="d-flex flex-row" style="width: 600px; overflow:hidden;">
-                        @foreach (CartItem cartItem in order.Cart)
-                        {
-                            <img src="@cartItem.Book.BookMeta.BgUrl" alt="" style="width: 150px; height:150px;">
-
-                        }
-                    </div>
                     <div class="items__productinfor" style="margin-left: 20px;">
                         <p class="items__productinfor-text">Đơn hàng số: @order.Id</p>
                         <p class="items__productinfor-money">@order.Name</p>
                         <p class="items__productinfor-money">@order.Email</p>
                         <a class="items__productinfor-money" href="/home/orderdetail/@order.Id">Xem chi tiết đơn hàng</a>
                     </div>
+                    <div class="d-flex flex-row border rounded" style="width: 860px; overflow:hidden;">
+                        @foreach (CartItem cartItem in order.Cart.Take(3))
+                        {
+                            <div class="d-flex flex-column justify-content-center align-items-center" style="width: 100px;">
+                                <img src="@cartItem.Book.BookMeta.BgUrl" alt="" style="width: 100px; padding-bottom:0 !important;">
+                                <h4>x @cartItem.Count</h4>
+                            </div>
+                        }
+                        @if(order.Cart.Count > 3)
+                        {
+                            <div class="d-flex flex-column justify-content-center align-items-center" style="margin-top: 15px; width:100px; height:100px; text-align: center; padding: 0 18px;">
+                                <div class="d-flex flex-column justify-content-center align-items-center" style="width: 100%; height: 100%; background-color:#f8f8f8; ">Xem thêm</div>
+                            </div>
+                        }
+                    </div>
+                    
                     <div class="number__productcart">
                         <div class="items__productquality1 ">
                         
