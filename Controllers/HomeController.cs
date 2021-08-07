@@ -235,12 +235,17 @@ namespace book.Controllers
             return View();
         }
 
-        public IActionResult OrderDetail(int orderId)
+        public IActionResult OrderDetail(int id, int orderId)
         {
-            Order order = _orderService.GetOrderDetail(orderId);
+            Order order = _orderService.GetOrderDetail(id);
             ViewBag.Order = order;
             return View();
         }
+
+        // public IActionResult CreateRating(int bookId)
+        // {
+        //     return 
+        // }
 
         // public IActionResult Account()
         // {
