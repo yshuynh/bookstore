@@ -45,7 +45,7 @@ namespace book.Services
             order.Count = count;
             order.Cost = sum;
             _context.SaveChanges();
-            return order;
+            return GetOrderDetail(order.Id);
         }
         public List<Order> GetListOrder(int userId)
         {

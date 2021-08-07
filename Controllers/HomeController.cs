@@ -224,7 +224,9 @@ namespace book.Controllers
             List<CartItem> cart = HttpContext.Session.Get<List<CartItem>>("cart");
             order.User = HttpContext.Session.Get<User>("user_login");
             Order newOrder = _orderService.CreateOrder(order, cart);
-            return Redirect("/home/orderdetail?orderId=" + newOrder.Id);
+            ViewBag.Order = newOrder;
+            return View("OrderDetail");
+            // return Redirect("/home/orderdetail/" + newOrder.Id);
         }
 
         public IActionResult Orders()
@@ -235,9 +237,12 @@ namespace book.Controllers
             return View();
         }
 
-        public IActionResult OrderDetail(int id, int orderId)
+        public IActionResult OrderDetail(int id)
         {
+            User userLogged = HttpContext.Session.Get<User>("user_login");
+            if (userLogged == null) return NotFound();
             Order order = _orderService.GetOrderDetail(id);
+            if (order.UserId != userLogged.Id) return NotFound();
             ViewBag.Order = order;
             return View();
         }
