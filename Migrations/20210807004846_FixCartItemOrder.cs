@@ -2,26 +2,26 @@
 
 namespace book.Migrations
 {
-    public partial class AddOrder7 : Migration
+    public partial class FixCartItemOrder : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_CartItem_user_user_id",
+                name: "FK_CartItem_Orders_order_id",
                 table: "CartItem");
 
             migrationBuilder.AlterColumn<int>(
-                name: "user_id",
+                name: "order_id",
                 table: "CartItem",
                 nullable: true,
                 oldClrType: typeof(int),
                 oldType: "int");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_CartItem_user_user_id",
+                name: "FK_CartItem_Orders_order_id",
                 table: "CartItem",
-                column: "user_id",
-                principalTable: "user",
+                column: "order_id",
+                principalTable: "Orders",
                 principalColumn: "id",
                 onDelete: ReferentialAction.Restrict);
         }
@@ -29,11 +29,11 @@ namespace book.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_CartItem_user_user_id",
+                name: "FK_CartItem_Orders_order_id",
                 table: "CartItem");
 
             migrationBuilder.AlterColumn<int>(
-                name: "user_id",
+                name: "order_id",
                 table: "CartItem",
                 type: "int",
                 nullable: false,
@@ -41,10 +41,10 @@ namespace book.Migrations
                 oldNullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_CartItem_user_user_id",
+                name: "FK_CartItem_Orders_order_id",
                 table: "CartItem",
-                column: "user_id",
-                principalTable: "user",
+                column: "order_id",
+                principalTable: "Orders",
                 principalColumn: "id",
                 onDelete: ReferentialAction.Cascade);
         }

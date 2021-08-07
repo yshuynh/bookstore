@@ -70,6 +70,10 @@ namespace book.Migrations
                         .HasColumnName("id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AuthorId")
+                        .HasColumnName("author_id")
+                        .HasColumnType("int");
+
                     b.Property<string>("BgUrl")
                         .IsRequired()
                         .HasColumnName("bg_url")
@@ -78,6 +82,10 @@ namespace book.Migrations
                     b.Property<int>("BookId")
                         .HasColumnName("book_id")
                         .HasColumnType("int");
+
+                    b.Property<string>("CoverForm")
+                        .HasColumnName("cover_form")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Description")
                         .HasColumnName("description")
@@ -101,6 +109,8 @@ namespace book.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.HasIndex("BookId")
                         .IsUnique();
 
@@ -123,7 +133,7 @@ namespace book.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnName("order_id")
                         .HasColumnType("int");
 
@@ -322,6 +332,10 @@ namespace book.Migrations
 
             modelBuilder.Entity("book.Models.BookMeta", b =>
                 {
+                    b.HasOne("book.Models.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId");
+
                     b.HasOne("book.Models.Book", "Book")
                         .WithOne("BookMeta")
                         .HasForeignKey("book.Models.BookMeta", "BookId")
@@ -345,9 +359,7 @@ namespace book.Migrations
 
                     b.HasOne("book.Models.Order", "Order")
                         .WithMany("Cart")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("book.Models.User", "User")
                         .WithMany("Cart")

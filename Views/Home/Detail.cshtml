@@ -41,7 +41,8 @@
                 </div>
                 <p class="book-info"><span>Nhà cung cấp: </span>
                     <span class="info">@book.BookMeta.Publisher.Name</span>
-                    <br><br><span>Tác giả: </span> <span class="info1">Hannah Watson, Malu Lenzi</span>
+                    <br><br><span>Tác giả: </span> <span class="info1">@(book.BookMeta.Author==null?"Đang cập nhật":book.BookMeta.Author.Name)</span>
+                    <br><br><span>Hình thức bìa: </span> <span class="info2">@(book.BookMeta.CoverForm)</span>
                 </p>
                 <small>Giá cũ: <s><span>@String.Format("{0:n0}", book.BookMeta.OriginalPrice)
                             vnđ</span></s></small>

@@ -2,22 +2,21 @@
 
 namespace book.Migrations
 {
-    public partial class AddCountToCartItem : Migration
+    public partial class CoverForm : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "Count",
-                table: "CartItem",
-                nullable: false,
-                defaultValue: 0);
+            migrationBuilder.AddColumn<string>(
+                name: "cover_form",
+                table: "book_meta",
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Count",
-                table: "CartItem");
+                name: "cover_form",
+                table: "book_meta");
         }
     }
 }

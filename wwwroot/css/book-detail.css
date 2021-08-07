@@ -93,6 +93,10 @@
     text-transform: UPPERCASE;
     font-weight: 500;
 }
+.info2{
+    padding-left:52px;
+    font-weight: 500;
+}
 .text-muted span{
     padding-left: 90px;
 }

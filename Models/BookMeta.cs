@@ -13,6 +13,12 @@ namespace book.Models
         [Column("id")]
         public int Id { get; set; }
 
+        [Column("author_id")]
+        [ForeignKey("Author")]
+        public int? AuthorId { get; set; }
+        [JsonIgnore]
+        public Author Author { get; set; }
+
         [Required]
         [JsonIgnore]
         [Column("book_id")]
@@ -45,5 +51,7 @@ namespace book.Models
 
         [Column("description")]
         public string Description { get; set; }
+        [Column("cover_form")]
+        public string CoverForm { get; set; }
     }
 }

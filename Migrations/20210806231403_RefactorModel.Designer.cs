@@ -9,8 +9,8 @@ using book.Models;
 namespace book.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210731235226_AddOrder3")]
-    partial class AddOrder3
+    [Migration("20210806231403_RefactorModel")]
+    partial class RefactorModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,10 @@ namespace book.Migrations
                         .HasColumnName("id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AuthorId")
+                        .HasColumnName("author_id")
+                        .HasColumnType("int");
+
                     b.Property<string>("BgUrl")
                         .IsRequired()
                         .HasColumnName("bg_url")
@@ -103,6 +107,8 @@ namespace book.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.HasIndex("BookId")
                         .IsUnique();
 
@@ -125,10 +131,11 @@ namespace book.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrderId")
+                    b.Property<int>("OrderId")
+                        .HasColumnName("order_id")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnName("user_id")
                         .HasColumnType("int");
 
@@ -172,6 +179,12 @@ namespace book.Migrations
                         .HasColumnName("address")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("Cost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnName("email")
@@ -187,7 +200,7 @@ namespace book.Migrations
                         .HasColumnName("phone_number")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnName("user_id")
                         .HasColumnType("int");
 
@@ -317,6 +330,10 @@ namespace book.Migrations
 
             modelBuilder.Entity("book.Models.BookMeta", b =>
                 {
+                    b.HasOne("book.Models.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId");
+
                     b.HasOne("book.Models.Book", "Book")
                         .WithOne("BookMeta")
                         .HasForeignKey("book.Models.BookMeta", "BookId")
@@ -338,24 +355,22 @@ namespace book.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("book.Models.Order", null)
+                    b.HasOne("book.Models.Order", "Order")
                         .WithMany("Cart")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("book.Models.User", "User")
                         .WithMany("Cart")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("book.Models.Order", b =>
                 {
                     b.HasOne("book.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("book.Models.Rating", b =>

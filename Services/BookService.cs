@@ -47,6 +47,8 @@ namespace book.Services
                 .Include(b => b.SubCategory)
                 .Include(b => b.BookMeta)
                     .ThenInclude(bm => bm.Publisher)
+                .Include(b => b.BookMeta)
+                    .ThenInclude(bm => bm.Author)
                 .AsNoTracking()    
                 .ToList();
 
@@ -63,6 +65,8 @@ namespace book.Services
                 .Include(b => b.SubCategory)
                 .Include(b => b.BookMeta)
                     .ThenInclude(bm => bm.Publisher)
+                .Include(b => b.BookMeta)
+                    .ThenInclude(bm => bm.Author)
                 .AsNoTracking()
                 .FirstOrDefault(b => b.Id == id);
             // var book = _context.Books

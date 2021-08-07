@@ -105,8 +105,10 @@ namespace book.Controllers
                 books = books.FindAll(b => b.Category.Id == category);
                 ViewBag.Category = categories.Find(b => b.Id == category);
             }
-            ViewBag.MaxPage = (int)(books.Count+14)/15;
-            books = books.GetRange(15*(page-1), Math.Min(15, books.Count - 15*(page-1)));
+            int pageSize = 20;
+            ViewBag.MaxPage = (int)(books.Count+pageSize-1)/pageSize;
+            books = books.OrderByDescending(o=>o.Id).ToList();
+            books = books.GetRange(pageSize*(page-1), Math.Min(pageSize, books.Count - pageSize*(page-1)));
             ViewBag.Page = page;
             List<Publisher> publishers = _publisherService.GetPublishers();
 

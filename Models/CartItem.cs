@@ -30,7 +30,7 @@ namespace book.Models
         [JsonIgnore]
         [Column("order_id")]
         [ForeignKey("Order")]
-        public int OrderId { get; set; }
+        public int? OrderId { get; set; }
         [JsonIgnore]
         public Order Order { get; set; }
     }
