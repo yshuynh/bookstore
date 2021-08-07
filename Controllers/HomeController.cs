@@ -234,8 +234,8 @@ namespace book.Controllers
         public IActionResult Orders()
         {
             User userLogged = HttpContext.Session.Get<User>("user_login");
-            // if (userLogged == null) return NotFound();
-            List<Order> orders = _orderService.GetListOrder(1);
+            if (userLogged == null) return NotFound();
+            List<Order> orders = _orderService.GetListOrder(userLogged.Id);
             ViewBag.Orders = orders;
             return View();
         }

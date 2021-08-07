@@ -83,9 +83,9 @@
                             </div>
                             <div class="checkout_products_item_detail">
                                 <div class="checkout_products_item_name">@cartItem.Book.Title</div>
-                                <div class="checkout_products_item_price">@cartItem.Book.BookMeta.Price đ</div>
+                                <div class="checkout_products_item_price">@String.Format("{0:n0}", cartItem.Book.BookMeta.Price) VND</div>
                                 <div class="checkout_products_item_quality">@cartItem.Count</div>
-                                <div class="checkout_products_item_total">@(cartItem.Book.BookMeta.Price * cartItem.Count) đ</div>
+                                <div class="checkout_products_item_total">@String.Format("{0:n0}", cartItem.Book.BookMeta.Price * cartItem.Count) VND</div>
                             </div>
                         </div>
                     </div>   
@@ -130,7 +130,7 @@
                 <div class="checkout_total">
                     <div class="checkout_total_subtotal">
                         <div>Thành Tiền</div>
-                        <div>@sumPrice đ</div>
+                        <div>@String.Format("{0:n0}", sumPrice) đ</div>
                     </div>
                     <div class="checkout_total_shipping">
                         <div>Phí Vận Chuyển</div>
@@ -140,7 +140,7 @@
                         <div>
                             Tổng Số Tiền (gồm VAT)
                         </div>
-                        <div>@sumPrice đ</div>
+                        <div>@String.Format("{0:n0}", sumPrice) VND</div>
 
                     </div>
                 </div>
