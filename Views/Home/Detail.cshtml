@@ -124,7 +124,7 @@
                                     <span class='fa fa-star @(rating.Rate >= 4?"checked":"")'></span>
                                     <span class='fa fa-star @(rating.Rate >= 5?"checked":"")'></span>
                                 </div>
-                                <span>@rating.Created</span>
+                                <span>@rating.Created.ToLocalTime()</span>
                                 <p>@rating.Comment
                                 </p>
                                 @* <div>
