@@ -91,8 +91,11 @@ namespace book.Controllers
             // ViewBag.Cart = cart;
         }
 
-        public IActionResult Index(string searchString, int category=-1, int subCategory=-1, int page=1)
+        public IActionResult Index(string searchString, string order, int category=-1, int subCategory=-1, int page=1)
         {
+            ViewBag.Order = order;
+            string queryString = HttpContext.Request.QueryString.Value;
+            ViewBag.QueryString = queryString;
             ViewData["CurrentFilter"] = searchString;
             List<Book> books = _bookService.GetBooksIndex(searchString);
             List<Category> categories = _categoryService.GetCategories();
@@ -107,7 +110,10 @@ namespace book.Controllers
             }
             int pageSize = 20;
             ViewBag.MaxPage = (int)(books.Count+pageSize-1)/pageSize;
-            books = books.OrderByDescending(o=>o.Id).ToList();
+            if (order == "bestseller")
+                books = books.OrderByDescending(o => o.CartUsers.Where(c => c.OrderId != null).ToList().Sum(b => b.Count)).ToList<Book>();
+            else
+                books = books.OrderByDescending(o=>o.Id).ToList();
             books = books.GetRange(pageSize*(page-1), Math.Min(pageSize, books.Count - pageSize*(page-1)));
             ViewBag.Page = page;
             List<Publisher> publishers = _publisherService.GetPublishers();

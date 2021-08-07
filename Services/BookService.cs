@@ -49,6 +49,7 @@ namespace book.Services
                     .ThenInclude(bm => bm.Publisher)
                 .Include(b => b.BookMeta)
                     .ThenInclude(bm => bm.Author)
+                .Include(b => b.CartUsers)
                 .AsNoTracking()    
                 .ToList();
 

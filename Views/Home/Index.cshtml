@@ -8,9 +8,39 @@
     SubCategory subCategory1 = ViewBag.SubCategory;
     int page = ViewBag.Page;
     int maxPage = ViewBag.MaxPage;
-    string pageUrl = "/?";
-    if (subCategory1 != null) pageUrl = "/?subCategory=" + subCategory1.Id + "&";
-    else if (category1 != null) pageUrl = "/?category=" + category1.Id + "&";
+    string pageUrl = ViewBag.QueryString;
+    @* string pageUrl = "/?"; *@
+    @* if (subCategory1 != null) pageUrl = "/?subCategory=" + subCategory1.Id + "&";
+    else if (category1 != null) pageUrl = "/?category=" + category1.Id + "&"; *@
+    string UrlExcept(string t)
+    {
+        string res = pageUrl;
+        if (res.Contains(t))
+        {
+            int L = res.IndexOf(t);
+            int R = res.IndexOf("&", L);
+            if (R > 0) res = res.Remove(L-1, R-L+2);
+            else res = res.Remove(L-1);
+        }
+        if (res.Length == 0) res += '?';
+        else res += '&';
+        if (res[0] != '?') res = '?' + res;
+        while (res.Contains("&&"))
+        {
+            res = res.Remove(res.IndexOf("&&"), 1);
+        }
+        return res;
+    }
+    string order = ViewBag.Order;
+    @* if (pageUrl.Contains("page"))
+    {
+        int L = pageUrl.IndexOf("page");
+        int R = pageUrl.IndexOf("&", L);
+        if (R > 0) pageUrl = pageUrl.Remove(L-1, R-L+2);
+        else pageUrl = pageUrl.Remove(L-1);
+    }
+    if (pageUrl.Length == 0) pageUrl += '?';
+    else pageUrl += '&'; *@
 }
 <div class="grid">
     <div class="grid__row app__content">
@@ -153,15 +183,21 @@
                 <span class="home__fiter-heading">
                     Sắp xếp theo
                 </span>
-                <button class="btn btn-home__fiter">
+                <a href='@(UrlExcept("order"))order=popular'>
+                <button class='btn @(order=="popular"?"btn--primary":"") btn-home__fiter'>
                     Phổ biến
                 </button>
-                <button class="btn btn--primary btn-home__fiter">
+                </a>
+                 <a href='@(UrlExcept("order"))'>
+                <button class='btn @(order==null?"btn--primary":"") btn-home__fiter'>
                     Mới nhất
                 </button>
-                <button class="btn btn-home__fiter">
+                </a>
+                <a href='@(UrlExcept("order"))order=bestseller'>
+                <button class='btn @(order=="bestseller"?"btn--primary":"") btn-home__fiter'>
                     Bán chạy
                 </button>
+                </a>
                 <div class="home__fiter-pages">
                     <span class="home__pages-number">
                         <span class="home__pages-current"> 1</span>/14
@@ -249,7 +285,7 @@
                     else
                     {
                         <li class="paganition__items">
-                            <a href="@(pageUrl)page=@i" class="paganition__items-link">
+                            <a href='@(UrlExcept("page"))page=@i' class="paganition__items-link">
                                 @i
                             </a>
                         </li>
