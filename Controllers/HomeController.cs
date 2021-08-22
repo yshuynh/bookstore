@@ -69,6 +69,7 @@ namespace book.Controllers
             } else {
                 ViewBag.User = new User{Id=-1, Email="", PhoneNumber="", Address="", Name=""};
             }
+            ViewBag.ListTitle = _bookService.GetAllBookTitle();
 
             // var userString = HttpContext.Session.GetString("login");
             // User userLogged = null;
@@ -91,7 +92,24 @@ namespace book.Controllers
             // ViewBag.Cart = cart;
         }
 
-        public IActionResult Index(string searchString, string order, int category=-1, int subCategory=-1, int page=1)
+        private Boolean isContainPrice(List<int> price_list, int price) {
+            foreach (int e in price_list) {
+                int from = e*100000;
+                int to = (e+1)*100000;
+                if (to == 300000) to = 100000000; //infinity
+                if (price >= from && price <= to) return true;
+            }
+            return false;
+        }
+
+        public IActionResult Index(string searchString, 
+                                    string order, 
+                                    int category=-1, 
+                                    int subCategory=-1, 
+                                    int page=1, 
+                                    List<int> publisher=null,
+                                    List<int> bia=null,
+                                    List<int> price=null)
         {
             ViewBag.Order = order;
             string queryString = HttpContext.Request.QueryString.Value;
@@ -99,6 +117,7 @@ namespace book.Controllers
             ViewData["CurrentFilter"] = searchString;
             List<Book> books = _bookService.GetBooksIndex(searchString);
             List<Category> categories = _categoryService.GetCategories();
+            // Filter category
              if (subCategory != -1) {
                 books = books.FindAll(b => b.SubCategory.Id == subCategory);
                 Category categoryObj = categories.Find(b => b.SubCategories.Any(c => c.Id == subCategory));
@@ -108,15 +127,39 @@ namespace book.Controllers
                 books = books.FindAll(b => b.Category.Id == category);
                 ViewBag.Category = categories.Find(b => b.Id == category);
             }
-            int pageSize = 20;
-            ViewBag.MaxPage = (int)(books.Count+pageSize-1)/pageSize;
+            // Filter Publisher
+            if (publisher != null && publisher.Count > 0) {
+                books = books.FindAll(b => publisher.Contains(b.BookMeta.PublisherId));
+            }
+            // Filter Bia
+            if (bia != null && bia.Count > 0) {
+                List<string> biaTmp = new List<string>();
+                foreach (int idbia in bia) {
+                    if (idbia == 1) biaTmp.Add("Bìa Mềm");
+                    else biaTmp.Add("Bìa Cứng");
+                }
+                books = books.FindAll(b => biaTmp.Contains(b.BookMeta.CoverForm));
+            }
+            // Filter Price
+            if (price != null && price.Count > 0) {
+                books = books.FindAll(b => isContainPrice(price, b.BookMeta.Price));
+            }
+            // Filter Order
             if (order == "bestseller")
                 books = books.OrderByDescending(o => o.CartUsers.Where(c => c.OrderId != null).ToList().Sum(b => b.Count)).ToList<Book>();
             else if (order == "popular")
                 books = books.OrderByDescending(o => o.Ratings.Count).ToList<Book>();
             else
                 books = books.OrderByDescending(o=>o.Id).ToList();
-            books = books.GetRange(pageSize*(page-1), Math.Min(pageSize, books.Count - pageSize*(page-1)));
+            // Page
+            int pageSize = 20;
+            ViewBag.MaxPage = (int)(books.Count+pageSize-1)/pageSize;
+            page = Math.Min(ViewBag.MaxPage, page);
+            if (ViewBag.MaxPage == 0) {
+                ViewBag.MaxPage = 1;
+                page = 1;
+            }
+            books = books.GetRange(pageSize*(page-1), Math.Max(Math.Min(pageSize, books.Count - pageSize*(page-1)), 0));
             ViewBag.Page = page;
             List<Publisher> publishers = _publisherService.GetPublishers();
 

@@ -55,8 +55,10 @@ $(document).ready(function(){
             $(this).prevAll().addClass('checked');
             $(this).addClass('checked');
             $(this).nextAll().removeClass('checked');
-        });
-        
+        });   
     }
+
 });
     
+
+

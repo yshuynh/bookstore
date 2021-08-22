@@ -1198,7 +1198,9 @@ i.home__product-items-icon-fill{
     background-color: var(--white-color);
     border-radius: 50%;
     border: solid 2px #333;
+    outline: none;
 }
+items_productcart-close:active{outline:none}
 .items_productcart img{
     padding: 15px 0px;
 }
@@ -1228,6 +1230,7 @@ i.home__product-items-icon-fill{
     border-radius: 8px;
     width: 67px;
     margin-left: 54px;
+    margin-top: 10px;
 }
 
 .qualtity_items{
@@ -1267,11 +1270,11 @@ i.home__product-items-icon-fill{
     padding: 15px;
 }
 .total__cartpage-left{
-    flex-basis: 70%;
+    flex-basis: 60%;
     font-size: 14px;
 }
 .total__cartpage-right{
-    flex-basis: 30%;
+    flex-basis: 40%;
     font-size: 14px;
     display: flex;
     justify-content: flex-end;

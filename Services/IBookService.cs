@@ -11,5 +11,6 @@ namespace book.Services
         public Book GetBookDetailById(int? id);
         public List<Book> GetBooksIndex(string searchString);
         public List<Rating> GetRatings(int id);
+        public List<string> GetAllBookTitle();
     }
 }

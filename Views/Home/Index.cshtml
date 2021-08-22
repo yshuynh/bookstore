@@ -31,6 +31,12 @@
         }
         return res;
     }
+    bool isContainPublisher(int id) {
+        return pageUrl.Contains("publisher="+id.ToString());
+    }
+    bool isContainInUrl(string name, int id) {
+        return pageUrl.Contains(name + "="+id.ToString());
+    }
     string order = ViewBag.Order;
     @* if (pageUrl.Contains("page"))
     {
@@ -52,7 +58,7 @@
                 </h3>
                 <ul class="category__list">
                     <li class="category__items category__items-active">
-                        <a href="" class="category__items-link">
+                        <a href="/" class="category__items-link">
                             <i class="fas fa-chevron-down"></i>
                             Sản phẩm</a>
                     </li>
@@ -82,24 +88,52 @@
                         </a>
                     </li>
                     <li class="category__items">
-                        <a href="" class="category__items-checkbox">
-                            <input type="checkbox" class="category__check">
-                            0-150,000đ
+                        <a class="category__items-checkbox keep-scroll">
+                            <input
+                                @(isContainInUrl("price", 0)?"checked":"")   
+                                type="checkbox" class="category__check price" id="price0">
+                            <label for="price0">0-100,000 VND</label>
                         </a>
                     </li>
                     <li class="category__items">
-                        <a href="" class="category__items-checkbox">
-                            <input type="checkbox" class="category__check">
-                            0-150,000đ
+                        <a class="category__items-checkbox keep-scroll">
+                            <input
+                                @(isContainInUrl("price", 1)?"checked":"")   
+                                type="checkbox" class="category__check price" id="price1">
+                            <label for="price1">100,000-200,000 VND</label>
                         </a>
                     </li>
                     <li class="category__items">
-                        <a href="" class="category__items-checkbox">
-                            <input type="checkbox" class="category__check">
-                            0-150,000đ
+                        <a class="category__items-checkbox keep-scroll">
+                            <input
+                                @(isContainInUrl("price", 2)?"checked":"")   
+                                type="checkbox" class="category__check price" id="price2">
+                            <label for="price2">> 200,000 VND</label>
                         </a>
                     </li>
-
+                    <script>
+                        $(document).ready(function () {
+                            $('.price').change(function () {
+                                var $this = $(this);
+                                var id = $this.attr('id');
+                                id = id.replace("price", "")
+                                var url = window.location.href;
+                                if($this.is(':checked')){
+                                    if (url[url.length -1] =='/')
+                                        url = url + "?price=" + id;
+                                    else
+                                        url = url + "&price=" + id;
+                                }
+                                else{
+                                    url = url.replace("&price=" + id,'');
+                                    url = url.replace("?price=" + id,'');
+                                }
+                                url = url.replace("/&", "/?");
+                                console.log(url);
+                                window.location.href = url;
+                            });
+                        });
+                    </script>
                 </ul>
                 <ul class="category__list">
                     <li class="category__items category__items-active">
@@ -109,18 +143,45 @@
                         </a>
                     </li>
                     <li class="category__items">
-                        <a href="" class="category__items-checkbox">
-                            <input type="checkbox" class="category__check">
-                            Bìa mềm
+                        <a class="category__items-checkbox keep-scroll">
+                            <input 
+                                @(isContainInUrl("bia", 1)?"checked":"")  
+                                type="checkbox" class="category__check bia" id="biamem">
+                            <label for="biamem">Bìa mềm</label>
                         </a>
                     </li>
                     <li class="category__items">
-                        <a href="" class="category__items-checkbox">
-                            <input type="checkbox" class="category__check">
-                            Bìa cứng
+                        <a class="category__items-checkbox keep-scroll">
+                            <input 
+                                @(isContainInUrl("bia", 2)?"checked":"")  
+                                type="checkbox" class="category__check bia" id="biacung">
+                            <label for="biacung">Bìa cứng</label>
                         </a>
                     </li>
-
+                    <script>
+                        $(document).ready(function () {
+                            $('.bia').change(function () {
+                                var $this = $(this);
+                                var id = $this.attr('id');
+                                if (id == "biamem") id = "1";
+                                else id = "2";
+                                var url = window.location.href;
+                                if($this.is(':checked')){
+                                    if (url[url.length -1] =='/')
+                                        url = url + "?bia=" + id;
+                                    else
+                                        url = url + "&bia=" + id;
+                                }
+                                else{
+                                    url = url.replace("&bia=" + id,'');
+                                    url = url.replace("?bia=" + id,'');
+                                }
+                                url = url.replace("/&", "/?");
+                                console.log(url);
+                                window.location.href = url;
+                            });
+                        });
+                    </script>
                 </ul>
                 <ul class="category__list">
                     <li class="category__items category__items-active">
@@ -132,12 +193,48 @@
                     @foreach (var publisher in publishers)
                     {
                         <li class="category__items">
-                            <a href="" class="category__items-checkbox">
-                                <input type="checkbox" class="category__check">
-                                @publisher.Name
+                            <a class="category__items-checkbox keep-scroll">
+                                <input 
+                                    @(isContainPublisher(publisher.Id)?"checked":"")  
+                                    type="checkbox" class="category__check publisher" id="@publisher.Id" name="@publisher.Id">
+                                <label for="@publisher.Id" style="margin-bottom: none;">@publisher.Name</label>
                             </a>
                         </li>
                     }
+                    <script>
+                        $(document).ready(function () {
+                            $('.publisher').change(function () {
+                                var $this = $(this);
+                                var id = $this.attr('id');
+                                var url = window.location.href;
+                                if($this.is(':checked')){
+                                    if (url[url.length -1] =='/')
+                                        url = url + "?publisher=" + id;
+                                    else
+                                        url = url + "&publisher=" + id;
+                                }
+                                else{
+                                    url = url.replace("&publisher=" + id,'');
+                                    url = url.replace("?publisher=" + id,'');
+                                }
+                                url = url.replace("/&", "/?");
+                                console.log(url);
+                                window.location.href = url;
+                                @* console.log(window.localStorage.getItem("scroll"));
+                                window.localStorage.setItem("scroll", document.documentElement.scrollTop); *@
+                                @* $.ajax({
+                                    type: 'GET',
+                                    url: url ,
+                                    success: function (data) {
+                                        location.reload();
+                                    },
+                                    error: function (data) {
+                                        alert(data);
+                                    } 
+                                }); *@
+                            });
+                        });
+                    </script>
 
                 </ul>
             </nav>
@@ -145,7 +242,7 @@
 
 
         <div class="grid__column-10">
-            @if (category1 == null && subCategory1 == null)
+            @if (pageUrl == "")
             {
                 <div id="slider">
                     <figure>
@@ -164,7 +261,7 @@
                     </figure>
                 </div>
             }
-            else
+            @if (!(category1 == null && subCategory1 == null))
             {
                 <div class="container" style="background-color: transparent !important; padding-bottom: 0; padding-top: 0;">
                     <div class="row">
@@ -179,7 +276,7 @@
                     </div>
                 </div>
             }
-            <div class="home__fiter">
+            <div class="home__fiter keep-scroll">
                 <span class="home__fiter-heading">
                     Sắp xếp theo
                 </span>

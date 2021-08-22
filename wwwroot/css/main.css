@@ -1212,6 +1212,7 @@ i.home__product-items-icon-fill{
     background-color: var(--white-color);
     border-radius: 50%;
     border: solid 2px #333;
+    outline: none;
 }
 .items_productcart img{
     padding: 15px 0px;
@@ -1242,6 +1243,7 @@ i.home__product-items-icon-fill{
     border-radius: 8px;
     width: 67px;
     margin-left: 58px;
+    margin-top: 10px;
 }
 
 .qualtity_items{
@@ -1286,11 +1288,11 @@ i.home__product-items-icon-fill{
     padding: 15px;
 }
 .total__cartpage-left{
-    flex-basis: 70%;
+    flex-basis: 60%;
     font-size: 14px;
 }
 .total__cartpage-right{
-    flex-basis: 30%;
+    flex-basis: 40%;
     font-size: 14px;
     display: flex;
     justify-content: flex-end;
@@ -1305,7 +1307,6 @@ i.home__product-items-icon-fill{
     border: none;
     transition: 0.5s;
     background: linear-gradient(90deg, rgba(255,152,0,1) 0%, rgba(247,105,93,1) 100%);
-   
 }
 .btn-pay:focus{
     outline: none;
@@ -1542,4 +1543,55 @@ i.home__product-items-icon-fill{
      width: 67px;
      margin-left: 21px;
      margin-bottom: 10px;
+}
+.no-hover:hover
+{
+/*your code goes here*/   
+text-decoration: none;
+color: inherit;  
+}
+
+
+/*Auto complete*/
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    margin-top: 5px;
+    height: 312px;
+    overflow-y: hidden;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+}
+
+label {
+    display: inline-block;
+    margin: 0;
 }

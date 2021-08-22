@@ -23,7 +23,7 @@
                            <div class="items__productinfor">
                                <input name="cartItemId" value="@cartItem.Id" hidden/>
                                <p class="items__productinfor-text">@cartItem.Book.Title</p>
-                               <p class="items__productinfor-money">@cartItem.Book.BookMeta.Price</p>
+                               <p class="items__productinfor-money">@String.Format("{0:n0}", cartItem.Book.BookMeta.Price) VND</p>
                            </div>
                            <div class="number__productcart">
                                <div class="items__productquality">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="items_producttotal">
                                     <p class="items_producttoal-text">Thành tiền</p>
-                                    <p class="items_producttoal-money">@(cartItem.Book.BookMeta.Price * cartItem.Count)</p>
+                                    <p class="items_producttoal-money">@String.Format("{0:n0}", cartItem.Book.BookMeta.Price * cartItem.Count) VND</p>
                                 </div>
                            </div>
 
@@ -132,7 +132,7 @@
                                     Thành Tiền
                                 </div>
                                 <div class="total__cartpage-right">
-                                    <span class="price"> @sumPrice đ</span>
+                                    <span class="price"> @String.Format("{0:n0}", sumPrice) VND</span>
                                 </div>
 
                             </div>
@@ -141,7 +141,7 @@
                                     Phí Vận Chuyển(Miễn Phí Vận Chuyển)
                                 </div>
                                 <div class="total__cartpage-right">
-                                    <span class="price"> 0 đ</span>
+                                    <span class="price"> 0 VND</span>
                                 </div>
                                 
                             </div>
@@ -151,7 +151,7 @@
                                     Tổng số tiền (gồm VAT)
                                 </div>
                                 <div class="total__cartpage-right">
-                                   <span class="price"> @sumPrice đ</span>
+                                   <span class="price">@String.Format("{0:n0}", sumPrice) VND</span>
                                 </div>
                             </div> 
                             <a href="/home/buy" class="div_pay">
